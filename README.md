@@ -32,7 +32,7 @@ Seamless navigation between Home, Transaction, and Data pages.
 Form for user's wallet address and amount.
 - Wallet Address validation: Should not be empty and must follow the standard Ethereum address format (0x...).
 - Amount validation: Ensure the amount entered is a number and within a specified range (0 - 10,000).
-- Bonus: Data submission to Google Firestore database.
+
 
 ## Data Page
 Fetches data from the open-source API - 'https://jsonplaceholder.typicode.com/posts'.
