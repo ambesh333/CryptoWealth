@@ -14,11 +14,11 @@ Run the application using `npm run dev`
 ## Features
 
 1. **Home Page**
-   - ![Alt](./public/image.gif)
+   - ![Alt](./public/homePage.png)
 2. **Transaction Page**
-   - ![Alt](./public/shape.gif)
+   - ![Alt](./public/transaction.png)
 3. **Data Page**
-   - ![Alt](./public/Line.gif)
+   - ![Alt](./public/chart.png)
 
 # Features
 
