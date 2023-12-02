@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import styles from "../style";
 import { Footer } from "../components";
 
-import * as firebase from "firebase/app";
-import "firebase/database";
+// import * as firebase from "firebase/app";
+// import "firebase/database";
+
+import { getDatabase, ref, push } from "firebase/database";
 
 const Transaction = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [amount, setAmount] = useState("");
   const [walletAddressError, setWalletAddressError] = useState("");
   const [amountError, setAmountError] = useState("");
-  const [formData, setFormData] = useState({ walletAddress: "", amount: "" });
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const validateForm = () => {
     let isValid = true;
 
@@ -50,18 +52,15 @@ const Transaction = () => {
     if (validateForm()) {
       try {
         // Store data in Firebase
-        await firebase
-          .database()
-          .ref("transactions")
-          .push(formData)
-          .then((ref) => {
-            console.log("Data was saved successfully with ref:", ref.key);
+        const db = getDatabase();
+        push(ref(db, "transactions"), { walletAddress, amount })
+          .then((snapshot) => {
+            console.log("Data was saved successfully with ref:", snapshot.key);
+            setIsSubmitted(true); // Set isSubmitted to true after successful submission
           })
           .catch((error) => {
             console.error("Data could not be saved: ", error);
           });
-
-        console.log("Form submitted successfully");
       } catch (error) {
         console.error("Error submitting form:", error);
       }
@@ -164,6 +163,11 @@ const Transaction = () => {
                 >
                   SUBMIT
                 </button>
+                {isSubmitted && (
+                  <p className="mt-2  text-sm text-green-600 dark:text-green-500">
+                    Form data submitted successfully!
+                  </p>
+                )}
               </form>
             </div>
           </section>
