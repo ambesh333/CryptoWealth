@@ -2,8 +2,7 @@
 
 This web application is designed and developed as part of the React.js developer assignment. The primary goals are to showcase skills in React.js, React Router navigation, form input validation, error handling, and data visualization using reCharts.
 
-## Deployed Link
-[Link](https://crypto-wealth.vercel.app/)
+## Deployed Link [Link](https://crypto-wealth.vercel.app/)
 
 
 ## Installation
